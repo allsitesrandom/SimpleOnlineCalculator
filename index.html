@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Online Calculator</title>
+  <style>
+  
+  .InBlackSquare {
+  background-color: black;
+  border: 0;
+  border: 8px solid;
+  border-left-color: chartreuse;
+  border-top-color: red;
+  border-bottom-color: yellow;
+  border-right-color: purple;
+  border-radius: 30px;
+  width: 380px;
+  height: 380px;
+  opacity: 80%;
+  align-self: center;
+}
+
+.SinalBtn {
+  background-color: black;
+  border: 0;
+  border: 3px solid aqua;
+  border-radius: 30px;
+  color: white;
+}
+
+.SinalBtn:hover > .SinalBtn{
+  border: 3px solid aquamarine;
+  cursor: pointer;
+}
+
+.NumberBar {
+  background-color: black;
+  border: 0;
+  border: 2px solid aquamarine;
+  border-radius: 30px;
+  color: white;
+  width: 200px;
+}
+
+.NumberBar:hover > .NumberBar{
+  border: 2px solid deeppink;
+  width: 250px;
+}
+
+.ResultBtn {
+  background-color: black;
+  border: 0;
+  border: 3px solid cornflowerblue;
+  border-radius: 30px;
+  color: white;
+  width: 70px;
+  height: 70px;
+}
+
+.ResultBtn:hover > .ResultBtn{
+  border: 3px solid cadetblue;
+  cursor: pointer;
+}
+
+.ResultTxt {
+  color: blue;
+}
+
+.ResultTxt:hover > .ResultTxt{
+  color: cyan;
+}
+
+.ResultSimbol {
+  color: blue;
+}
+
+.ResultSimbol:hover > .ResultSimbol{
+  color: cyan;
+}
+  
+  </style>
+</head>
+<body background="https://media.discordapp.net/attachments/768282134564569090/871851775269953666/namibia-4820682_1920.jpg">
+  <div align="center" class="InBlackSquare">
+  <input class="NumberBar" type="number" placeholder="Number" id="Number1" name="Number1">
+  <br><br><button onclick="Mais()" class="SinalBtn">+</button><button onclick="Menos()" class="SinalBtn">-</button><button onclick="Multiplicacao()" class="SinalBtn">×</button><button onclick="Divisao()" class="SinalBtn">÷</button><br>
+    <h2 id="SinalSimbol" class="ResultSimbol"></h2>
+  <input class="NumberBar" type="number" placeholder="Number" id="Number2" name="Number2"><br>
+    <br><button class="ResultBtn" onclick="GetResultAndDisplay()">=</button>
+  <h2 id="Result" class="ResultTxt"></h2>
+  </div>
+</body>
+<script type="text/javascript">
+var NumberOne = 0;
+var NumberTwo = 0;
+var Sinal = '+';
+var Result = 0;
+ShowSinalSimbol ();
+function ShowSinalSimbol () {
+  document.getElementById('SinalSimbol').innerHTML = Sinal;
+}
+function Mais () {
+  Sinal = '+';
+  ShowSinalSimbol ();
+};
+function Menos () {
+  Sinal = '-';
+  ShowSinalSimbol ();
+};
+function Multiplicacao () {
+  Sinal = '×';
+  ShowSinalSimbol ();
+};
+function Divisao () {
+  Sinal = '÷';
+  ShowSinalSimbol ();
+};
+function GetResultAndDisplay () {
+  NumberOne = document.getElementById('Number1').value;
+  NumberTwo = document.getElementById('Number2').value;
+  if (Sinal === '+') {
+    NumberOne --;
+    NumberOne ++;
+    NumberTwo --;
+    NumberTwo ++;
+    Result = NumberOne + NumberTwo;
+    document.getElementById('Result').innerHTML = Result;
+  };
+  if (Sinal === '-') {
+    Result = NumberOne - NumberTwo;
+    document.getElementById('Result').innerHTML = Result;
+  };
+  if (Sinal === '×') {
+    Result = NumberOne * NumberTwo;
+    document.getElementById('Result').innerHTML = Result;
+  };
+  if (Sinal === '÷') {
+    Result = NumberOne / NumberTwo;
+    document.getElementById('Result').innerHTML = Result;
+  };
+};
+</script>
+</html>
